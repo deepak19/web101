@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="resources/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/Grid.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400">
+    <title>Check Out</title>
+    <!-- http://www.mocky.io/v2/5b0cbbd6330000d529b40099 -->
+    <!--Handlebar templates start-->
+    <script id="address-template" type="text/x-handlebars-template">
+        {{#each cartitems}}
+        <div class="col itemid-{{id}} clearfix">
+            <div class="item-pic"><img src="{{photo}}" alt=""></div>
+            <div class="item-desc">
+                <p>{{name}}</p>
+                <p>Style #: {{style}}</p>
+                <p>Colour: {{Color}}</p>
+            </div>
+            <div class="item-size">{{size}}</div>
+            <div class="item-qty"><textarea readonly>{{quantity}}</textarea></div>
+            <div class="item-price"><sub>$</sub><span>{{mul discountprice quantity}}</span></div>
+            <div class="item-modify">
+                <ul>
+                    <li class="edit"  data-id="{{id}}">Edit</li>
+                    <li class="remove" data-id="{{id}}">Remove</li>
+                    <li class="save">Save for later</li>
+                </ul>
+            </div>
+        </div>
+
+        {{/each}}
+
+    </script>
+    <!--Handlebar templates end-->
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="row">
+            <h1>Your Shopping Bag</h1>
+        </nav>
+    </header>
+    <section class="cart-items">
+        <div class="row item-head">
+            <table class="table-head">
+                <tr>
+                    <th><span>X</span> Items</th>
+                    <th>Size</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="row items cart-placeholder">
+        </div>
+    </section>
+    <div class="row">
+
+    <section class="support">
+        <p class="help">Need help or have question?</p>
+        <p class="call">Call customer service at 1-800-555-5555</p>
+        <p class="chat">Chat with our one of the stttylists</p>
+        <p class="chat">See return & exchange policy</p>
+    </section>
+    <section class="checkout">
+        <div class="promo">
+            <p>Enter promotion code or gift card</p>
+            <button type="button">APPLY</button>
+            <input type="text" name="promo">
+        </div>
+        <div class="calculation">
+            <table>
+                <tr>
+                    <td>SUBTOTAL</td>
+                    <td class="m-value subtotal"><sub>$</sub><span></span></td>
+                </tr>
+                <tr>
+                    <td>PROMOTION CODE <span></span> APPLIED</td>
+                    <td class="m-value pcode"><sub>$</sub><span>24</span></td>
+                </tr>
+                <tr>
+                    <td>ESTIMATED SHIPPING
+                        <p class="free-ship">You qualified for free shipping because your order is over <span></span></p>
+                    </td>
+                    <td class="m-value shipcost"><sub>$</sub><span>FREE</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="estimate">
+            <table>
+                <tr>
+                    <td>ESTIMATED TOTAL
+                        <p class="tax">Tax will be applied during checkout</p>
+                    </td>
+                    <td class="m-value finalTotal"><sub>$</sub><span></span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="submit">
+
+            <button type="button">checkout</button>
+            <p>continue shopping</p>
+        </div>
+    </section>
+
+    </div>
+    <!-- Modal START -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="editit">
+                <p class="name" data-id="0">Deepak kumar</p>
+                <p class="price"><sub>$</sub><span>25</span></p>
+                <div class="changeit">
+                    <select class="editsize" name="size">
+                      <option selected="selected">SIZE</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                      </select>
+
+                    <select class="editqty" name="size">
+                      <option selected="selected">QTY</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                </div>
+                <div class="editdone">
+                <button type="button">EDIT</button>
+                <p>See product details</p>
+                </div>
+            </div>
+            <div class="viewit"><img src="resources/img/pink-ts.jpg" alt=""></div>
+        </div>
+    </div>
+    <!-- Modal END -->
+    <script src="resources/js/jquery-2.2.4.js"></script>
+    <script src="resources/js/handlebars.min.js"></script>
+    <script src="resources/js/script.js"></script>
+</body>
+
+</html>

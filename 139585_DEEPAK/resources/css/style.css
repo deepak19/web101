@@ -1,0 +1,612 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+    color: #555;
+    font-family: "Lato", "Arial", sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ------ Header ------ */
+
+header {
+    padding-bottom: 3%;
+}
+
+
+/*
+header:after {
+    content: "";
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+    width: 95%;
+    border-bottom: 1px solid #dddbdc;
+}
+*/
+
+h1 {
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 200%;
+    word-spacing: 5px;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+/* ------ Cart-Itmes ------ */
+
+.cart-items {
+    margin: 0 30px;
+}
+
+.table-head {
+    width: 100%;
+}
+
+.item-head:before,
+.item-head:after {
+    content: "";
+    display: block;
+    margin: auto;
+
+    /* position: absolute; */
+    width: 100%;
+    border-bottom: 1px solid #dddbdc;
+}
+
+.item-head:after {
+    border-bottom: 5px solid #dddbdc;
+}
+
+.table-head th {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 300;
+    font-size: 65%;
+    letter-spacing: 1px;
+    width: 10%;
+    padding: 14px 0;
+}
+
+.table-head th:nth-of-type(1) {
+    width: 70%;
+    text-align: left;
+    padding-left: 10px;
+}
+
+table-head tr:nth-of-type(1) {}
+
+
+.cart-placeholder .col {
+    float: none;
+    display: block;
+    margin: 1% 0 1% 0%;
+    border-bottom: 1px solid #dddbdc;
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+    position: relative;
+    transition: all 1s ease-in-out;
+}
+
+.cart-placeholder .col:last-of-type {
+    border-bottom: 5px solid #dddbdc;
+}
+
+.cart-placeholder .col div {
+    float: left;
+}
+
+.item-pic {
+    width: calc(20% - 30px);
+    height: auto;
+    margin-right: 20px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.item-pic img {
+    width: 100%;
+}
+
+.item-desc {
+    width: 50%;
+    font-size: 68%;
+    margin-top: 2%;
+}
+
+.item-desc p {
+    padding: 2px 10px;
+
+}
+
+.item-desc p:nth-of-type(1) {
+    font-size: 115%;
+    text-transform: uppercase;
+    font-weight: 400;
+
+}
+
+.item-size,
+.item-qty,
+.item-price {
+    width: 10%;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.item-qty textarea {
+    width: 32px;
+    height: 26px;
+    resize: none;
+    text-align: center;
+    font-weight: 300;
+    outline: none;
+}
+
+.item-modify {
+    position: absolute;
+    top: 77%;
+    left: 21%;
+    font-size: 80%;
+    width: 50%;
+}
+
+.item-modify ul {
+    list-style: none;
+}
+
+.item-modify ul li {
+    display: inline;
+    padding: 0 10px;
+    border-right: 1px solid #555;
+    cursor: pointer;
+}
+
+/*
+.item-modify ul li span {
+    font-weight: 400;
+    font-size: 120%;
+}
+*/
+
+.item-modify ul li:last-child {
+    border-right: 0;
+}
+
+.remove,
+.edit,
+.save {
+    transition: all 0.1s ease;
+}
+
+.remove:hover {
+    color: #f70000;
+}
+
+.edit:hover {
+    color: #4b9fec;
+}
+
+.save:hover {
+    color: #05b736;
+}
+
+.remove:before {
+    content: 'x';
+    font-weight: 300;
+    font-family: Arial, sans-serif;
+    font-size: 121%;
+    margin-right: 1%;
+}
+
+/* ------ The Modal ------ */
+
+.modal {
+    /*    display: none;*/
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    z-index: 99;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 2px #585858;
+}
+
+.editit {
+    float: left;
+    margin-top: 12%;
+    margin-left: 6%;
+    width: 33%;
+    border-top: 5px solid #EFEFEF;
+    padding-top: 25px;
+    font-size: 90%;
+    color: #555555b8;
+}
+
+.name {
+    text-align: center;
+
+}
+
+.price {
+    text-align: center;
+    font-size: 300%;
+    margin-top: 4%;
+
+}
+
+.changeit {
+    margin-top: 25%;
+    text-align: center;
+}
+
+.viewit {
+    float: right;
+    width: 50%;
+}
+
+.viewit img {
+    width: 65%;
+    margin-left: 23%;
+    margin-top: 12%;
+}
+
+/* The Close Button */
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.editdone {
+    margin-top: 10%;
+    text-align: center;
+}
+
+.editdone button {
+    float: none;
+    cursor: pointer;
+}
+
+.editdone p {
+    margin-top: 4%;
+    font-size: 70%;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* CheckOut section */
+
+.support {
+    width: 35%;
+    font-size: 80%;
+    float: left;
+    /*    padding: 0 0 0 4%;*/
+}
+
+.support p {
+    margin: 15px 0;
+    width: 165px;
+}
+
+.support .help {
+    font-weight: 400;
+}
+
+.support .chat {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.checkout {
+    width: 65%;
+    float: right;
+    margin: 15px 0;
+    /*    padding-right: 4%;*/
+}
+
+.promo {
+    border-bottom: 5px solid #dddbdc;
+    height: 80px;
+}
+
+.promo p {
+    float: left;
+    text-transform: uppercase;
+    width: 200px;
+    font-size: 80%;
+}
+
+button {
+    background-color: #fefefe;
+    float: right;
+    font-size: 80%;
+    padding: 10px 19px;
+    margin-left: 10px;
+    outline: none;
+}
+
+button:active {
+    margin-top: 2px;
+}
+
+.promo input {
+    height: 40px;
+    float: right;
+    outline: none;
+}
+
+.calculation table {
+    width: 100%;
+    font-size: 80%;
+    font-weight: 400;
+}
+
+.calculation table td {
+    margin-bottom: 10px;
+    padding: 25px 0px;
+}
+
+table td:first-child {
+    padding: 25px 432px 25px 0px;
+}
+
+table td:last-child {
+    text-align: right;
+}
+
+.item-price sub,
+table sub,
+.price sub {
+    top: -0.4em;
+    font-size: 55%;
+}
+
+.free-ship,
+.tax {
+    font-weight: 300;
+    color: #dddbdc;
+}
+
+.m-value {
+    font-size: 125%;
+}
+
+.estimate table {
+    width: 100%;
+    font-weight: 400;
+}
+
+.estimate .tax {
+    font-size: 80%;
+}
+
+.calculation {
+    border-bottom: 1px solid #dddbdc;
+}
+
+.estimate {
+    border-bottom: 5px solid #dddbdc;
+    height: 100px;
+}
+
+.submit {
+    margin-top: 25px;
+}
+
+.submit * {
+    text-transform: uppercase;
+}
+
+.submit button {
+    background-color: #066ab7;
+    color: #fefefe;
+}
+
+.submit p {
+    float: right;
+    border-bottom: 1px solid #555;
+    font-size: 70%;
+    padding-top: 10px;
+    margin-right: 4%;
+    letter-spacing: 2px;
+}
+
+.submit button,
+.submit p {
+    float: right;
+}
+
+.item-price span:after, .subtotal span:after, .pcode span:after, .shipcost span:after, .finalTotal span:after {
+    content: '.00';
+}
+
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    header {
+        position: absolute;
+        top: -10px;
+        left: 4%;
+    }
+    h1 {
+        font-size: 110%;
+        font-weight: 300;
+    }
+    .cart-items {
+        margin: 0;
+    }
+    .item-size,
+    .item-qty,
+    .item-price {
+        width: 60%;
+        text-align: -webkit-auto;
+        padding: 2px 10px;
+        margin-top: 2%;
+        font-size: 68%;
+    }
+    .item-size {
+        margin-top: 0;
+    }
+    .item-size:before {
+        content: "Size: ";
+    }
+    .item-qty:before {
+        content: "QTY: ";
+        top: -4px;
+        position: relative;
+    }
+    .item-qty textarea {
+        width: 25px;
+        height: 20px;
+    }
+    .item-price {
+        font-size: 100%;
+    }
+
+    .table-head th {
+        display: none;
+        float: right;
+    }
+    .table-head th:nth-of-type(1) {
+        display: block;
+        width: 26%;
+        text-align: right;
+        padding-right: 5px;
+    }
+
+    .item-head:before {
+        border-bottom: 0px;
+    }
+    .item-pic {
+        width: calc(40% - 30px);
+        margin-top: 2%;
+        margin-bottom: 5%;
+    }
+    .item-desc {
+        width: 60%;
+    }
+    .item-modify {
+        top: 86%;
+        left: 0;
+        text-align: center;
+        width: 100%;
+    }
+    .cart-placeholder .col {
+        margin: 4% 0 4% 0%;
+    }
+    .support {
+        display: none;
+    }
+    .checkout {
+        width: 100%;
+        float: none;
+        /*    padding-right: 4%;*/
+    }
+    table td:first-child {
+        padding: 0px;
+    }
+    .promo {
+        height: 100px;
+        border-bottom: 1px solid #dddbdc;
+    }
+    .promo p {
+        float: none;
+        text-transform: uppercase;
+        width: 100%;
+        padding: 0 125px;
+        text-align: center;
+    }
+    .promo input {
+
+        float: none;
+        margin-left: 9%;
+        width: 50%;
+    }
+    .promo button {
+        left: -19%;
+        position: relative;
+    }
+    .calculation,
+    .estimate,
+    .submit {
+        padding: 0 20px;
+    }
+    .estimate {
+        border-bottom: 0px solid #dddbdc;
+        height: 70px;
+    }
+    .submit {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .submit button {
+        float: none;
+        width: 80%;
+        text-align: center;
+    }
+    .submit p {
+        float: none;
+        border-bottom: 0px solid #555;
+        text-decoration: underline;
+    }
+}
