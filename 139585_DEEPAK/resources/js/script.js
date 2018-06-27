@@ -164,7 +164,7 @@ var controller = (function (cartCtrl, UICtrl) {
             var calculation;
             console.log('Application has Started.');
             //get Shopping cart details from server
-            var data = httpGet('http://www.mocky.io/v2/5b1ed4a03100008a233ff9f6');
+            var data = httpGet('https://www.mocky.io/v2/5b1ed4a03100008a233ff9f6');
             datajson = JSON.parse(data);
             //Update Handlebar data
             UICtrl.renderHandlebar(datajson);
